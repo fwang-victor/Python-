@@ -41,6 +41,13 @@ from bs4 import BeautifulSoup
 #### HTML内容查找方法
 <>.find_all(name,attrs,recursive,string,**kwargs)
 返回一个列表类型，存储查找的结果 
-* name:对标签名称的检索字符串,可以传入一个标签名称，也可以传入一个名称列表，如果传入参数为True，则查找所有标签。
+* name:对标签名称的检索字符串,可以传入一个标签名称，也可以传入一个名称列表，如果传入参数为`True`，则查找所有标签。
 * attrs:对标签属性值的检索字符串，可标注属性检索 
+* recursive:为True时，会检索当前tag的所有子孙节点；如果只想搜索tag的直接子节点，设置`recursive=False`
+* string:搜索文档中的字符串内容，接受字符串，正则表达式，列表，`True`
+
+find_all()简写方法
+Beautiful对象和tag对象可以被当做一个方法来使用，下面两行代码是等价的：
+> `soup.find_all('a')`
+ ` soup('a')`
 
