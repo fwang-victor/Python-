@@ -29,3 +29,4 @@ worldcloud.WorldCloud()代表一个文本对应的词云
 ||`from scipy.misc import imread`|
 ||`mk = imread('pic.png')`|
 ||`w = worldcloud.WorldCloud(mask=mk)`|
+|background_color|指定词云图片的背景颜色，默认为黑色|
