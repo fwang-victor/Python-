@@ -52,6 +52,20 @@ index_3 --> data_d   data_4    data_z
 * 行索引：横向的为column  轴axis = 1 
 #### DataFrame类型可以由如下类型创建
 * 二维ndarray对象
+``` python 
+import numpy as np 
+import pandas as pd 
+df = pd.DataFrame(np.arange(10).reshpae(2,5))
+```
 * 由一维Ndarray、列表、字典、元组和Series构成的字典
+``` python 
+dt = {'one':pd.Series([1,2,3],index=['a','b','c']),
+      'two':pd.Series([6,7,8,9],index=['a','b','c','d'])}
+df = pd.DataFrame(dt)
+#使用列表类型字典创建
+dl = {'one':[1,2,3,4],
+      'two':[9,8,7,6]}
+d = pd.DataFrame(df,index=['a','b','c','d'])
+```
 * Series类型
 * 其他DataFrame
