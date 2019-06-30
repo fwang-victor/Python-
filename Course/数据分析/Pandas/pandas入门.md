@@ -18,8 +18,8 @@ pd.Series(np.arange(5))
 ```
 * 其他函数： range()函数 
 ####　Series类型基本操作  
-* s.index  获得索引 index类型
-* s.values 获得数据 ndarray类型 
+* s.index  获得索引 Index类型
+* s.values 获得数据 Ndarray类型 
 * 索引采用[]
 * Numpy中运算和操作可用于Series类型
 * 可以通过自定义索引的列表进行切片
@@ -68,4 +68,65 @@ dl = {'one':[1,2,3,4],
 d = pd.DataFrame(df,index=['a','b','c','d'])
 ```
 * Series类型
-* 其他DataFrame
+* 其他DataFrame 
+
+### Pandas库的数据类型操作 
+如何改变Series和DataFrame对象（指的是增加、重排、删除索引）
+#### 增加或重排：重新索引 
+* 重新索引 
+> .reindex()能够改变或重排Series和DataFrame索引
+
+.reindex(index=None,columns=None,...)的参数
+|参数|说明|
+|--|--|
+|index, columns|新的行列自定义索引|
+|fill_value|重新索引中，用于填充缺失位置的值|
+|method|填充方法，ffill当前值向前填充,bfill向后填充|
+|limit|最大填充量|
+|copy|默认为True,生成新的对象，False时，新旧相等不复制| 
+* 索引类型的常用方法:
+
+|方法|说明|
+|--|--|
+|.append(idx)|连接另一个index对象，产生新的Index对象|
+|.diff(idx)|计算差集，产生新的index对象|
+|.intersection(idx)|计算交集|
+|.union(idx)|计算并集|
+|.delete(loc)|删除loc位置出的元素|
+|.insert(loc,e)|在loc位置处增加一个元素e|
+
+#### 删除：drop方法
+.drop()能够删除Series和DataFrame指定行或列索引
+如果要删除列，要指定axis=1,默认删除0轴元素
+
+### Pandas库的数据类型运算
+算数运算法则：
+* 算数运算根据行列索引，补齐后运算，运算默认产生浮点数
+* 补齐时缺项填充NaN（空值）
+* 二维和一维、一维和零维间 为广播运算
+* 采用+-*/符号进行的二元运算产生新的对象 
+#### 数学类型的算数运算 方法形式的运算 
+|方法|说明|
+|--|--|
+|.add(d,*argws)|类型间加法运算，可选参数|
+|.sub(d,*argws)|类型间减法运算，可选参数|
+|.mul(d,*argws)|类型间乘法运算，可选参数|
+|.div(d,*argws)|类型间除法运算，可选参数| 
+`a.add(b,fill_value=100)` 
+不同维度间为广播运算，一维Series默认在轴1参与运算
+比较运算法则：
+* 比较运算只能比较相同索引的元素，不进行补齐
+* 二维和一维、一维和零维间 为广播运算
+* 采用> < <= >= != ==等符号进行的二元运算产生布尔对象
+> 同维度运算，要求尺寸一致
+> 不同维度，广播运算，默认在1轴 
+
+
+### 数据排序
+* .sort_index()方法在指定轴上根据**索引**进行排序，默认升序
+
+`.sort_index(axis=0,ascending=True)`
+* .sort_index()方法在指定轴上根据**数值**进行排序，默认升序 
+
+`Seriese.sort_values(axis=0,ascending=True)`
+`DataFrame.sort_values()`
