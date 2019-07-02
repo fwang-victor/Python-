@@ -9,9 +9,12 @@ series 类型是由一组数据及与之相关的数据索引组成
 * python列表 
 * 标量值  由标量值创建的时候，必须要指定`index`
 ``` python 
-s = pd.Series(25,index=['a','b','c']) 
+s = pd.Series(25,index=['a','b','c'])
 ```
 * python字典 
+``` python
+s = pd.Series({'a':1,'b':2,'c':3})
+```
 * ndarray  
 ``` python 
 pd.Series(np.arange(5))  
@@ -28,7 +31,7 @@ Series + Series
 ``` python
 import pandas as pd 
 a = pd.Series([1,2,3],['c','d','e'])
-b = pd.Series([1,2,3],['a','b','c','d']) 
+b = pd.Series([1,2,3,4],['a','b','c','d']) 
 ```
 > Series 类型在运算中会自动对齐不同索引的数据
 ####　Series类型的name属性 
