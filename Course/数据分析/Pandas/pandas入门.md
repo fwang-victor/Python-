@@ -87,6 +87,9 @@ d = pd.DataFrame(df,index=['a','b','c','d'])
 |method|填充方法，ffill当前值向前填充,bfill向后填充|
 |limit|最大填充量|
 |copy|默认为True,生成新的对象，False时，新旧相等不复制| 
+---
+Series 和 DataFrame的索引是Index类型
+Index对象是不可修改类型
 * 索引类型的常用方法:
 
 |方法|说明|
@@ -117,6 +120,7 @@ d = pd.DataFrame(df,index=['a','b','c','d'])
 |.div(d,*argws)|类型间除法运算，可选参数| 
 `a.add(b,fill_value=100)` 
 不同维度间为广播运算，一维Series默认在轴1参与运算
+----
 比较运算法则：
 * 比较运算只能比较相同索引的元素，不进行补齐
 * 二维和一维、一维和零维间 为广播运算
