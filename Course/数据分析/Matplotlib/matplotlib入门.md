@@ -131,5 +131,3 @@ ax3 = plt.subplot(gs[1:,-1])
 |plt.scatter(x,y)|绘制散点图，其中，x和y长度相同|
 |plt.step(x,y,where)|绘制步阶图|
 |plt.hist(x,bins,normer)|绘制直方图| 
-
-####饼图的绘制
