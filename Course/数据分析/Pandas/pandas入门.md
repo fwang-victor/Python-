@@ -136,4 +136,46 @@ Index对象是不可修改类型
 * .sort_index()方法在指定轴上根据**数值**进行排序，默认升序 
 
 `Seriese.sort_values(axis=0,ascending=True)`
-`DataFrame.sort_values()`
+`DataFrame.sort_values()` 
+
+### 数据的清洗
+* `df.columns = ['a','b'] #重命名数据框的列名称`
+* `df.isnull() #检查数据中空值出现的情况，并反馈一个由布尔值组成的列 `
+* `df.notnull() #检查数据中非空值出现的情况，并反馈一个由布尔值组成的列 `
+* `df.dropna() #移除数据框DataFrame中包含空值的行` 
+* `df.dropna(axis=1) #移除数据框DataFrame中包含空值的列`  
+* `df.fillna(x) #将数据框DataFrame中的空值全部替换为x`
+* `s.astype(float) #将数组Series的格式转换为浮点数`
+* `s.replace(1,'one') #将数组Series中的1全部替换为one`
+
+### 数据的过滤（filter）、排序(sort)和分组(groupby) 
+* `df[df['A']>0.5] #选取DataFrame中对应行的数值大于0.5的全部列`
+* `df.sort_values(col1) #将DataFrame按照col1列数值的升序进行排列`
+* `df.sort_values(col1,ascending=False) #将DataFrame按照col1列数值的降序进行排列`
+* `df.sort_values([col1,col2],ascending=[True,False]) #将DataFrame按照col1列升序\col2降序进行排列`
+* `df.groupby(col) #按照某列对数据df进行分组`
+* `df.groupby([col1,col2]) #按照col1,col2对数据df进行分组` 
+* `df.groupby(col1) #按照某列对数据df进行分组`
+* `df.groupby(col1)[col2].mean() #按照col1列进行分组，返回col2的平均值`
+* `df.apply(np.mean) #对df的每一列求平均值` 
+* `df.apply(np.max,axis=1) #对df的每一行求最大值` 
+
+### 数据的连接与整合
+* `df.append(df2) #在df2的末尾添加df1，相当于union all`
+* `pd.concat([df1,df2],axis=1) #axis=1时，df1横向末尾添加df2，axis=0时，df1纵向末尾添加df2`
+* `df1.join(df2,on=col,how='inner') #对数据df1和df2进行内连接，连接的列为col`
+
+### 数据的统计
+* `df.describe() #得到df每一列的描述性统计`
+* `df.mean() #得到每一列的平均值`
+* `df.corr() #得到每一列与其他列的相关系数`
+* `df.count() #得到每一列非空值的个数`
+* `df.max() #得到每一列的最大值`
+* `df.min() #得到每一列的最小值`
+* `df.median() #得到每一列的中位数`
+* `df.std() # 得到每一列的标准差`
+
+
+
+
+
