@@ -22,11 +22,11 @@ worldcloud.WorldCloud()代表一个文本对应的词云
 |min_font_size|指定词云中字体的最小字号|
 |max_font_size|指定词云中字体的最大字号，根据高度自动调节|
 |font_step|字体字号的步进间隔|
-|font_path|指定字体文件的路径，默认为None，中文可以使用'msyh.ttc'|
+|font_path|指定字体文件的路径，默认为None，中文可以使用'msyh.ttf'|
 |max_words|词云显示的最大单词数量|
 |stop_words|词云的排除词列表，即不显示的单词列表|
 |mask|指定词云形状，默认为长方形，需要引入imread()函数|
-||`from scipy.misc import imread`|
-||`mk = imread('pic.png')`|
-||`w = worldcloud.WorldCloud(mask=mk)`|
+|aa|`from scipy.misc import imread`|
+|aa|`mk = imread('pic.png')`|
+|aa|`w = worldcloud.WorldCloud(mask=mk)`|
 |background_color|指定词云图片的背景颜色，默认为黑色|
